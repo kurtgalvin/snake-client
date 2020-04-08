@@ -18,5 +18,8 @@ const connect = function() {
   return conn;
 }
 
-console.log('Connecting ...');
-connect();
+// console.log('Connecting ...');
+// connect();
+// console.log('Successfully Connecting');
+
+module.exports = { connect };
