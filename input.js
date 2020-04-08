@@ -1,8 +1,12 @@
 let connection;
+let chatBubble = "";
 
 const handleUserInput = function(data) {
   if (data === '\x03') {
     process.exit()
+  } else if (data.charCodeAt(0) === 13) {
+    connection.write(`Say: ${chatBubble}`);
+    chatBubble = "";
   }
   switch (data) {
     case "w":
@@ -17,7 +21,10 @@ const handleUserInput = function(data) {
     case "d":
       connection.write('Move: right');
       break;
+    case "1":
+      connection.write("Say: SUPER SPEED!!!")
     default:
+      chatBubble += data;
       break;
   }
 }
