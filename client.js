@@ -6,19 +6,6 @@ const connect = function() {
     port: 50541
   });
   conn.setEncoding('utf8'); 
-
-  conn.on('connect', function() {
-    console.log('Connected');
-    conn.write('Name: KG')
-    setInterval(() => {
-      conn.write('Move: up')
-    }, 500);
-  })
-
-  conn.on('data', function(data) {
-    console.log(data);
-  })
-
   return conn;
 }
 
